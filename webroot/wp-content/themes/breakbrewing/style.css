@@ -1,8 +1,8 @@
 /*
-Theme Name: Breakbrewing
+Theme Name: Break Brewing
 Author: braican
 Author URI: http://braican.com/
-Description: This is a totally barebones theme to help expedite WordPress builds by providing a base point.
+Description: I like to homebrew. I like to make websites. I made a website about my homebrewing.
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -27,6 +27,12 @@ and Blueprint http://www.blueprintcss.org/
 /* --------------------------------------------------------------
  * --reset
  * --------------------------------------------------------------*/
+
+*, *:after, *:before{
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -247,43 +253,15 @@ textarea {
  * --layout
  * --------------------------------------------------------------*/
 
-/**
- * CONTENT - SIDEBAR
- */
-.content-area {
- 	float: left;
- 	margin: 0 -25% 0 0;
- 	width: 100%;
+.main-sidebar{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 200px;
 }
-.site-main {
- 	margin: 0 25% 0 0;
+.content-area{
+	margin-left: 220px;
 }
-.site-content .widget-area {
-	float: right;
- 	overflow: hidden;
- 	width: 25%;
-}
-
-/**
- * SIDEBAR - CONTENT
- */
-/*
-.content-area {
-	float: right;
-	margin: 0 0 0 -25%;
-	width: 100%;
-}
-.site-main {
-	margin: 0 0 0 25%;
-}
-.site-content .widget-area {
-	float: left;
-	overflow: hidden;
-	width: 25%;
-}
-
-*/
-
 
 
 /* ---------------------------------------------------------------
@@ -499,15 +477,15 @@ object {
 }
 
 /* --clear */
-. breakbrewing-cf:before,
-. breakbrewing-cf:after {
+.breakbrewing-cf:before,
+.breakbrewing-cf:after {
     content: " "; /* 1 */
     display: table; /* 2 */
 }
-. breakbrewing-cf:after {
+.breakbrewing-cf:after {
     clear: both;
 }
-. breakbrewing-.cf {
+.breakbrewing-.cf {
     *zoom: 1;
 }
 

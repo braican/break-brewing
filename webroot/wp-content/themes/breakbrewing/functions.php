@@ -134,9 +134,17 @@ require get_template_directory() . '/inc/customizer.php';
  */
 function breakbrewing_content_types(){
 
-    // register_post_type('type_name', array(
-
-    // ));
+    register_post_type('homebrew', array(
+        'labels'   => array(
+            'name'         => 'Beer',
+            'add_new_item' => 'Add New Beer'
+        ),
+        'public'   => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'rewrite'  => array(
+            'slug' => 'beer'
+        )
+    ));
 }
 add_action('init', 'breakbrewing_content_types');
 
@@ -148,9 +156,9 @@ add_action('init', 'breakbrewing_content_types');
  */
 function breakbrewing_taxonomies(){
 
-    // register_taxonomy('taxonomy_name', array('content_types'), array(
-
-    // ));
+    register_taxonomy('hops', array('homebrew'), array(
+        'label' => 'Hops Used'
+    ));
 }
 add_action('init', 'breakbrewing_taxonomies');
 

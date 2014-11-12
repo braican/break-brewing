@@ -4,12 +4,8 @@
  *
  * @package Breakbrewing
  */
-
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
-}
 ?>
 
-<div id="secondary" class="widget-area" role="complementary">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+<div id="secondary" class="main-sidebar" role="complementary">
+	<div class="logo"><?php include_svg('logo-1'); ?></div>
 </div><!-- #secondary -->
