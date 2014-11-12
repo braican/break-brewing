@@ -50,20 +50,6 @@ function breakbrewing_setup() {
     add_theme_support( 'html5', array(
         'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
     ) );
-
-    /*
-     * Enable support for Post Formats.
-     * See http://codex.wordpress.org/Post_Formats
-     */
-    add_theme_support( 'post-formats', array(
-        'aside', 'image', 'video', 'quote', 'link'
-    ) );
-
-    // Setup the WordPress core custom background feature.
-    add_theme_support( 'custom-background', apply_filters( 'breakbrewing_custom_background_args', array(
-        'default-color' => 'ffffff',
-        'default-image' => '',
-    ) ) );
 }
 endif; // breakbrewing_setup
 add_action( 'after_setup_theme', 'breakbrewing_setup' );
@@ -103,11 +89,6 @@ function breakbrewing_scripts() {
 add_action( 'wp_enqueue_scripts', 'breakbrewing_scripts' );
 
 /**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -124,7 +105,25 @@ require get_template_directory() . '/inc/customizer.php';
 
 
 /* --------------------------------------------
- * --_s content types and taxonomies
+ * --hooks
+ * -------------------------------------------- */
+
+/**
+ * breakbrewing_alter_query
+ * @param $query : the query being run
+ * 
+ * @implements pre_get_posts
+ */
+function breakbrewing_alter_query( $query ) {
+    if ( $query->is_home() ) {
+        $query->set('post_type', 'homebrew' );
+    }
+}
+add_action( 'pre_get_posts', 'breakbrewing_alter_query' );
+
+
+/* --------------------------------------------
+ * --content types and taxonomies
  * -------------------------------------------- */
 
 /**
@@ -159,12 +158,16 @@ function breakbrewing_taxonomies(){
     register_taxonomy('hops', array('homebrew'), array(
         'label' => 'Hops Used'
     ));
+
+    register_taxonomy('beer_style', array('homebrew'), array(
+        'label' => 'Style'
+    ));
 }
 add_action('init', 'breakbrewing_taxonomies');
 
 
 /* --------------------------------------------
- * --_s customizations
+ * --customizations
  * -------------------------------------------- */
 
 //

@@ -28,11 +28,14 @@ and Blueprint http://www.blueprintcss.org/
  * --reset
  * --------------------------------------------------------------*/
 
-*, *:after, *:before{
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
+*,
+*:before,
+*:after { /* apply a natural box layout model to all elements; see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+    -webkit-box-sizing: border-box; /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
+    -moz-box-sizing:    border-box; /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
+    box-sizing:         border-box;
 }
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -41,31 +44,24 @@ small, strike, strong, sub, sup, tt, var,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
-	border: 0;
-	font-family: inherit;
-	font-size: 100%;
-	font-style: inherit;
-	font-weight: inherit;
-	margin: 0;
-	outline: 0;
-	padding: 0;
-	vertical-align: baseline;
+    border: 0;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
 }
 html {
-	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
-	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
-	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
-	-ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
-}
-*,
-*:before,
-*:after { /* apply a natural box layout model to all elements; see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
-	-webkit-box-sizing: border-box; /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
-	-moz-box-sizing:    border-box; /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
-	box-sizing:         border-box;
+    font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
+    overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
+    -webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+    -ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
 }
 body {
-	background: #fff; /* Fallback for when there is no custom background color defined. */
+    background: #fff; /* Fallback for when there is no custom background color defined. */
 }
 article,
 aside,
@@ -77,35 +73,35 @@ header,
 main,
 nav,
 section {
-	display: block;
+    display: block;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 table { /* tables still need 'cellspacing="0"' in the markup */
-	border-collapse: separate;
-	border-spacing: 0;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 caption, th, td {
-	font-weight: normal;
-	text-align: left;
+    font-weight: normal;
+    text-align: left;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: "";
+    content: "";
 }
 blockquote, q {
-	quotes: "" "";
+    quotes: "" "";
 }
 a:focus {
-	outline: thin dotted;
+    outline: thin dotted;
 }
 a:hover,
 a:active {
-	outline: 0;
+    outline: 0;
 }
 a img {
-	border: 0;
+    border: 0;
 }
 
 /* --------------------------------------------------------------
@@ -116,126 +112,138 @@ button,
 input,
 select,
 textarea {
-	color: #404040;
-	font-family: sans-serif;
-	font-size: 16px;
-	font-size: 1.6rem;
-	line-height: 1.5;
+    color: #404040;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
 }
 h1, h2, h3, h4, h5, h6 {
-	clear: both;
+    clear: both;
 }
-p {
-	margin-bottom: 1.5em;
+h1{
+    font-size: 4em;
+    font-weight: 700;
+    line-height: 1;
+}
+h3{
+    font-size: 1.2em;
+    text-transform: uppercase;
+    color: #ccc;
+}
+p + p {
+    margin-top: 1em;
 }
 a {
-	color: royalblue;
+    color: #e47125;
+    text-decoration: none;
+    display: inline-block;
+    -webkit-transition: transform .2s;
+         -o-transition: transform .2s;
+            transition: transform .2s;
 }
-a:visited {
-	color: purple;
-}
-a:hover,
-a:focus,
-a:active {
-	color: midnightblue;
+a:hover {
+    -webkit-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+    transform: translateY(-1px);
 }
 b, strong {
-	font-weight: bold;
+    font-weight: bold;
 }
 dfn, cite, em, i {
-	font-style: italic;
+    font-style: italic;
 }
 blockquote {
-	margin: 0 1.5em;
+    margin: 0 1.5em;
 }
 address {
-	margin: 0 0 1.5em;
+    margin: 0 0 1.5em;
 }
 pre {
-	background: #eee;
-	font-family: "Courier 10 Pitch", Courier, monospace;
-	font-size: 15px;
-	font-size: 1.5rem;
-	line-height: 1.6;
-	margin-bottom: 1.6em;
-	max-width: 100%;
-	overflow: auto;
-	padding: 1.6em;
+    background: #eee;
+    font-family: "Courier 10 Pitch", Courier, monospace;
+    font-size: 15px;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1.6em;
 }
 code, kbd, tt, var {
-	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+    font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 abbr, acronym {
-	border-bottom: 1px dotted #666;
-	cursor: help;
+    border-bottom: 1px dotted #666;
+    cursor: help;
 }
 mark, ins {
-	background: #fff9c0;
-	text-decoration: none;
+    background: #fff9c0;
+    text-decoration: none;
 }
 sup,
 sub {
-	font-size: 75%;
-	height: 0;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
+    font-size: 75%;
+    height: 0;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
 }
 sup {
-	bottom: 1ex;
+    bottom: 1ex;
 }
 sub {
-	top: .5ex;
+    top: .5ex;
 }
 small {
-	font-size: 75%;
+    font-size: 75%;
 }
 big {
-	font-size: 125%;
+    font-size: 125%;
 }
 
 /* --------------------------------------------------------------
  * --Elements
  * --------------------------------------------------------------*/
 hr {
-	background-color: #ccc;
-	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
+    background-color: #ccc;
+    border: 0;
+    height: 1px;
+    margin-bottom: 1.5em;
 }
 ul, ol {
-	margin: 0 0 1.5em 3em;
+    margin: 0 0 1.5em 3em;
 }
 ul {
-	list-style: disc;
+    list-style: disc;
 }
 ol {
-	list-style: decimal;
+    list-style: decimal;
 }
 li > ul,
 li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
+    margin-bottom: 0;
+    margin-left: 1.5em;
 }
 dt {
-	font-weight: bold;
+    font-weight: bold;
 }
 dd {
-	margin: 0 1.5em 1.5em;
+    margin: 0 1.5em 1.5em;
 }
 img {
-	height: auto; /* Make sure images are scaled correctly. */
-	max-width: 100%; /* Adhere to container width. */
+    height: auto; /* Make sure images are scaled correctly. */
+    max-width: 100%; /* Adhere to container width. */
 }
 figure {
-	margin: 0;
+    margin: 0;
 }
 table {
-	margin: 0 0 1.5em;
-	width: 100%;
+    margin: 0 0 1.5em;
+    width: 100%;
 }
 th {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 /* --forms */
@@ -243,9 +251,9 @@ button,
 input,
 select,
 textarea {
-	font-size: 100%; /* Corrects font size not being inherited in all browsers */
-	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
-	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+    font-size: 100%; /* Corrects font size not being inherited in all browsers */
+    margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+    vertical-align: baseline; /* Improves appearance and consistency in all browsers */
 }
 
 
@@ -254,102 +262,101 @@ textarea {
  * --------------------------------------------------------------*/
 
 .main-sidebar{
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 200px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 240px;
 }
 .content-area{
-	margin-left: 220px;
+    margin-left: 260px;
+    padding-top: 20px;
+    max-width: 800px;
 }
 
+.column{
+    float: left;
+    width: 100%;
+}
+.column-1-2{
+    width: 50%;
+}
+.col-pad{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+section + section{
+    padding-top: 20px;
+}
+.entry-header{
+    padding-bottom: 20px;
+}
 
 /* ---------------------------------------------------------------
  * --components
  * ---------------------------------------------------------------*/
 
+/* sidebar */
+.logo{
+    padding: 100px 20px 20px;
+}
+
 /* --header */
 
 /* --menu */
 .main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
+    clear: both;
+    display: block;
+    float: left;
+    width: 100%;
 }
 .main-navigation ul {
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
 }
 .main-navigation li {
-	float: left;
-	position: relative;
+    float: left;
+    position: relative;
 }
 .main-navigation a {
-	display: block;
-	text-decoration: none;
+    display: block;
+    text-decoration: none;
 }
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 1.5em;
-	left: -999em;
-	z-index: 99999;
-}
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
-}
-.main-navigation ul ul a {
-	width: 200px;
-}
-.main-navigation ul ul li {
-}
-.main-navigation li:hover > a {
-}
-.main-navigation ul ul :hover > a {
-}
-.main-navigation ul ul a:hover {
-}
-.main-navigation ul li:hover > ul {
-	left: auto;
-}
-.main-navigation ul ul li:hover > ul {
-	left: 100%;
-}
-.main-navigation .current_page_item a,
-.main-navigation .current-menu-item a {
-}
+
 /* Small menu */
 .menu-toggle {
-	display: none;
+    display: none;
 }
 .site-main .comment-navigation,
 .site-main .paging-navigation,
 .site-main .post-navigation {
-	margin: 0 0 1.5em;
-	overflow: hidden;
+    margin: 0 0 1.5em;
+    overflow: hidden;
 }
 .comment-navigation .nav-previous,
 .paging-navigation .nav-previous,
 .post-navigation .nav-previous {
-	float: left;
-	width: 50%;
+    float: left;
+    width: 50%;
 }
 .comment-navigation .nav-next,
 .paging-navigation .nav-next,
 .post-navigation .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
+    float: right;
+    text-align: right;
+    width: 50%;
 }
 
 /* --footer */
 .site-footer {
-	clear: both;
-	width: 100%;
+    clear: both;
+    width: 100%;
+    background: #eee;
+    color: #999;
+    font-size: .8em;
+    padding: 40px 0;
+    margin-top: 40px;
 }
 
 /*--------------------------------------------------------------
@@ -357,86 +364,51 @@ textarea {
  * --------------------------------------------------------------*/
 
 .alignleft {
-	display: inline;
-	float: left;
-	margin-right: 1.5em;
+    display: inline;
+    float: left;
+    margin-right: 1.5em;
 }
 .alignright {
-	display: inline;
-	float: right;
-	margin-left: 1.5em;
+    display: inline;
+    float: right;
+    margin-left: 1.5em;
 }
 .aligncenter {
-	clear: both;
-	display: block;
-	margin: 0 auto;
+    clear: both;
+    display: block;
+    margin: 0 auto;
 }
 
 .page-content img.wp-smiley,
 .entry-content img.wp-smiley,
 .comment-content img.wp-smiley {
-	border: none;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding: 0;
+    border: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
 }
 /* Make sure embeds and iframes fit their containers */
 embed,
 iframe,
 object {
-	max-width: 100%;
+    max-width: 100%;
 }
 
 .wp-caption {
-	margin-bottom: 1.5em;
-	max-width: 100%;
+    margin-bottom: 1.5em;
+    max-width: 100%;
 }
 .wp-caption img[class*="wp-image-"] {
-	display: block;
-	margin: 0 auto;
+    display: block;
+    margin: 0 auto;
 }
 .wp-caption-text {
-	text-align: center;
+    text-align: center;
 }
 .wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
+    margin: 0.8075em 0;
 }
 
-/* --gallery */
-.gallery {
-	margin-bottom: 1.5em;
-}
-.gallery-item {
-	display: inline-block;
-	text-align: center;
-	vertical-align: top;
-	width: 100%;
-}
-.gallery-columns-2 .gallery-item {
-	max-width: 50%;
-}
-.gallery-columns-3 .gallery-item {
-	max-width: 33.33%;
-}
-.gallery-columns-4 .gallery-item {
-	max-width: 25%;
-}
-.gallery-columns-5 .gallery-item {
-	max-width: 20%;
-}
-.gallery-columns-6 .gallery-item {
-	max-width: 16.66%;
-}
-.gallery-columns-7 .gallery-item {
-	max-width: 14.28%;
-}
-.gallery-columns-8 .gallery-item {
-	max-width: 12.5%;
-}
-.gallery-columns-9 .gallery-item {
-	max-width: 11.11%;
-}
-.gallery-caption {}
 
 
 /* --------------------------------------------------------------
@@ -448,32 +420,32 @@ object {
  * --------------------------------------------------------------*/
 /* Text meant only for screen readers */
 .screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
 }
 
 .screen-reader-text:hover,
 .screen-reader-text:active,
 .screen-reader-text:focus {
-	background-color: #f1f1f1;
-	border-radius: 3px;
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	clip: auto !important;
-	color: #21759b;
-	display: block;
-	font-size: 14px;
-	font-weight: bold;
-	height: auto;
-	left: 5px;
-	line-height: normal;
-	padding: 15px 23px 14px;
-	text-decoration: none;
-	top: 5px;
-	width: auto;
-	z-index: 100000; /* Above WP toolbar */
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    color: #21759b;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000; /* Above WP toolbar */
 }
 
 /* --clear */
@@ -493,3 +465,35 @@ object {
 /* --------------------------------------------------------------
  * --media queries
  * --------------------------------------------------------------*/
+
+@media screen and (max-width: 640px){
+    .main-sidebar{
+        position: static;
+        width: 100%;
+    }
+    .logo{
+        padding-top: 20px;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+    .content-area{
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 640px){
+    body,
+    button,
+    input,
+    select,
+    textarea {
+        font-size: 14px;
+    }
+    h1{
+        font-size: 2.5em;
+    }
+    .column-1-2{
+        width: 100%;
+    }
+}
+
+
