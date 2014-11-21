@@ -37,6 +37,7 @@ function breakbrewing_setup() {
      * Enable support for Post Thumbnails on posts and pages.
      */
     add_theme_support( 'post-thumbnails' );
+    set_post_thumbnail_size( 300, 300, true );
 
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus( array(
@@ -169,6 +170,64 @@ add_action('init', 'breakbrewing_taxonomies');
 /* --------------------------------------------
  * --customizations
  * -------------------------------------------- */
+
+
+
+//
+// --rendering
+//
+
+/**
+ * breakbrewing_get_the_terms
+ * @param $id       : the id of the post
+ * @param $taxonomy : the name of the taxonomy
+ * @param $label    : label for these terms
+ * 
+ * customized version of get_terms
+ */
+function breakbrewing_get_the_terms($id, $taxonomy, $label){
+    $terms = get_the_terms( $id, $taxonomy ); ?>
+
+    <?php if( $terms ) : ?>
+        <div class="terms"><h3><?php echo $label; ?></h3>
+            <?php foreach( $terms as $t ) : ?>
+                <?php echo $t->name; ?>
+            <?php endforeach; ?>
+        </div>
+    <?php endif;
+}
+
+/**
+ * breakbrewing_format_date
+ * @param $date : the date
+ * 
+ * format the date
+ */
+function breakbrewing_format_date($date){
+    $php_date = DateTime::createFromFormat('Ymd', $date);
+    return $php_date->format('m/d/Y');   
+}
+
+
+/**
+ * breakbrewing_datelabel
+ * @param $date : the date
+ * 
+ * checks to see if the date given is in the future or in the past
+ *  and returns a string as a label
+ */
+function breakbrewing_datelabel($date){
+    $now = new DateTime();
+
+    // error_log(print_r(date()) );
+
+    if($now < DateTime::createFromFormat('Ymd', $date)){
+        return "Expected Release Date:";
+    }
+    return "Release Date:";
+}
+
+
 
 //
 // --structure

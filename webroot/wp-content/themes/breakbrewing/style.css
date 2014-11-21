@@ -61,7 +61,7 @@ html {
     -ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
 }
 body {
-    background: #fff; /* Fallback for when there is no custom background color defined. */
+    background: #e6e6e6; /* Fallback for when there is no custom background color defined. */
 }
 article,
 aside,
@@ -269,7 +269,6 @@ textarea {
 .content-area{
     margin-left: 260px;
     padding-top: 40px;
-    max-width: 800px;
 }
 
 .column{
@@ -291,6 +290,16 @@ section + section{
     padding-bottom: 20px;
 }
 
+.homebrew{
+    float: left;
+    width: 25%;
+    padding: 20px;
+}
+.beerblock-pad{
+    padding: 20px;
+    background: #fff;
+}
+
 /* ---------------------------------------------------------------
  * --components
  * ---------------------------------------------------------------*/
@@ -302,50 +311,6 @@ section + section{
 
 /* --header */
 
-/* --menu */
-.main-navigation {
-    clear: both;
-    display: block;
-    float: left;
-    width: 100%;
-}
-.main-navigation ul {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-}
-.main-navigation li {
-    float: left;
-    position: relative;
-}
-.main-navigation a {
-    display: block;
-    text-decoration: none;
-}
-
-/* Small menu */
-.menu-toggle {
-    display: none;
-}
-.site-main .comment-navigation,
-.site-main .paging-navigation,
-.site-main .post-navigation {
-    margin: 0 0 1.5em;
-    overflow: hidden;
-}
-.comment-navigation .nav-previous,
-.paging-navigation .nav-previous,
-.post-navigation .nav-previous {
-    float: left;
-    width: 50%;
-}
-.comment-navigation .nav-next,
-.paging-navigation .nav-next,
-.post-navigation .nav-next {
-    float: right;
-    text-align: right;
-    width: 50%;
-}
 
 /* --footer */
 .site-footer {
@@ -456,7 +421,7 @@ object {
 .breakbrewing-cf:after {
     clear: both;
 }
-.breakbrewing-.cf {
+.breakbrewing-cf {
     *zoom: 1;
 }
 
