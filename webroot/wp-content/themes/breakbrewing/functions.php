@@ -77,15 +77,15 @@ add_action( 'widgets_init', 'breakbrewing_widgets_init' );
  * Enqueue scripts and styles.
  */
 function breakbrewing_scripts() {
-    wp_enqueue_style( ' breakbrewing-style', get_stylesheet_uri() );
+    wp_enqueue_style( 'breakbrewing-style', get_stylesheet_uri() );
 
-    wp_enqueue_script( ' breakbrewing-plugins', get_template_directory_uri() . '/js/plugins.js', array('jquery'), '20140725', true );
+    wp_enqueue_script( 'breakbrewing-plugins', get_template_directory_uri() . '/js/plugins.js', array('jquery'), '20140725', true );
 
-    wp_enqueue_script( ' breakbrewing-main', get_template_directory_uri() . '/js/main.js', array('plugins', 'jquery'), '20140725', true );
+    wp_enqueue_script( 'breakbrewing-main', get_template_directory_uri() . '/js/main.js', array('breakbrewing-plugins', 'jquery'), '20140725', true );
 
-    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-        wp_enqueue_script( 'comment-reply' );
-    }
+    // if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+    //     wp_enqueue_script( 'comment-reply' );
+    // }
 }
 add_action( 'wp_enqueue_scripts', 'breakbrewing_scripts' );
 
@@ -188,10 +188,15 @@ add_action('init', 'breakbrewing_taxonomies');
 function breakbrewing_get_the_terms($id, $taxonomy, $label){
     $terms = get_the_terms( $id, $taxonomy ); ?>
 
-    <?php if( $terms ) : ?>
-        <div class="terms"><h3><?php echo $label; ?></h3>
+    <?php if( $terms ) :
+        $term_count = count($terms);
+        $i = 1; ?>
+        
+        <div class="terms">
+            <h3><?php echo $label; ?></h3>
             <?php foreach( $terms as $t ) : ?>
-                <?php echo $t->name; ?>
+                <span><?php echo $t->name; echo $term_count != $i ? ',' : ''; ?></span>
+                <?php $i++; ?>
             <?php endforeach; ?>
         </div>
     <?php endif;
@@ -222,9 +227,9 @@ function breakbrewing_datelabel($date){
     // error_log(print_r(date()) );
 
     if($now < DateTime::createFromFormat('Ymd', $date)){
-        return "Expected Release Date:";
+        return "Expected Release Date";
     }
-    return "Release Date:";
+    return "Release Date";
 }
 
 

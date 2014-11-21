@@ -103,49 +103,9 @@ a:active {
 a img {
     border: 0;
 }
-
 /* --------------------------------------------------------------
- * --Typography
+ * --Elements
  * --------------------------------------------------------------*/
-body,
-button,
-input,
-select,
-textarea {
-    color: #404040;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-}
-h1, h2, h3, h4, h5, h6 {
-    clear: both;
-}
-h1{
-    font-size: 4em;
-    line-height: 1;
-}
-h3{
-    font-size: 1.2em;
-    text-transform: uppercase;
-    color: #ccc;
-}
-p + p {
-    margin-top: 1em;
-}
-a {
-    color: #e47125;
-    text-decoration: none;
-    display: inline-block;
-    -webkit-transition: transform .2s;
-         -o-transition: transform .2s;
-            transition: transform .2s;
-}
-a:hover {
-    -webkit-transform: translateY(-1px);
-    -ms-transform: translateY(-1px);
-    -o-transform: translateY(-1px);
-    transform: translateY(-1px);
-}
 b, strong {
     font-weight: 700;
 }
@@ -200,10 +160,6 @@ small {
 big {
     font-size: 125%;
 }
-
-/* --------------------------------------------------------------
- * --Elements
- * --------------------------------------------------------------*/
 hr {
     background-color: #ccc;
     border: 0;
@@ -256,6 +212,58 @@ textarea {
 }
 
 
+
+/* --------------------------------------------------------------
+ * --Typography
+ * --------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+    color: #404040;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+h1, h2, h3, h4, h5, h6 {
+    clear: both;
+    line-height: 1;
+}
+h1{
+    font-size: 4em;
+}
+h2{
+    font-size: 1.4em;
+    font-weight: 700;
+}
+h3{
+    font-size: .8em;
+    text-transform: uppercase;
+    color: #666;
+    font-weight: 700;
+}
+p + p {
+    margin-top: 1em;
+}
+a {
+    color: #e47125;
+    text-decoration: none;
+    display: inline-block;
+    -webkit-transition: transform .2s;
+         -o-transition: transform .2s;
+            transition: transform .2s;
+}
+a:hover {
+    -webkit-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+    transform: translateY(-1px);
+}
+
+
+
+
 /* --------------------------------------------------------------
  * --layout
  * --------------------------------------------------------------*/
@@ -283,22 +291,12 @@ textarea {
     padding-right: 20px;
 }
 
-section + section{
-    padding-top: 20px;
-}
 .entry-header{
     padding-bottom: 20px;
 }
 
-.homebrew{
-    float: left;
-    width: 25%;
-    padding: 20px;
-}
-.beerblock-pad{
-    padding: 20px;
-    background: #fff;
-}
+
+
 
 /* ---------------------------------------------------------------
  * --components
@@ -309,7 +307,90 @@ section + section{
     padding: 20px
 }
 
-/* --header */
+
+
+
+/**
+ * --beer tile
+ */
+.beer-tile{
+    position: relative;
+    float: left;
+    width: 25%;
+    padding: 20px;
+}
+.beer-tile-pad{
+    padding: 20px;
+}
+.beer-tile img{
+    width: 100%;
+}
+.tile-front{
+    background: #fff;
+    position: relative;
+}
+.beer-tile.active .tile-front{
+    z-index: 10;
+}
+.beer-tile .tile-hover{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    visibility: hidden;
+    opacity: 0;
+
+    -webkit-transition: all .2s;
+         -o-transition: all .2s;
+            transition: all .2s;
+}
+.beer-tile.active .tile-hover,
+.beer-tile:hover .tile-hover{
+    visibility: visible;
+    opacity: .9;
+}
+
+.beer-tile section{
+    margin: 1em 0;
+}
+.tile-hover header{
+    position: relative;
+}
+.tile-hover h2{
+    padding-right: 60px;
+}
+.tile-hover .abv{
+    position: absolute;
+    right: 0;
+    top: -4px;
+    width: 50px;
+}
+.beer-tile .about-the-beer{
+    display: none;
+}
+.beerdrawer{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background: #fff;
+    visibility: hidden;
+    z-index: 9;
+
+    -webkit-transition: all .5s;
+         -o-transition: all .5s;
+            transition: all .5s;
+}
+.beerdrawer.active{
+    visibility: visible;
+    -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+         -o-transform: translateX(100%);
+            transform: translateX(100%);
+}
+
+
 
 
 /* --footer */
