@@ -283,9 +283,6 @@ a:hover {
     float: left;
     width: 100%;
 }
-.column-1-2{
-    width: 50%;
-}
 .col-pad{
     padding-left: 20px;
     padding-right: 20px;
@@ -316,7 +313,7 @@ a:hover {
 .beer-tile{
     position: relative;
     float: left;
-    width: 25%;
+    width: 33.33333333%;
     padding: 20px;
 }
 .beer-tile-pad{
@@ -511,20 +508,33 @@ object {
  * --media queries
  * --------------------------------------------------------------*/
 
-@media screen and (max-width: 640px){
-    .main-sidebar{
-        position: static;
-        width: 100%;
-    }
-    .logo{
-        padding-top: 20px;
-        max-width: 200px;
-        margin: 0 auto;
-    }
-    .content-area{
-        margin-left: 0;
+@media screen and (min-width: 1380px){
+    .beer-tile{
+        width: 25%;
     }
 }
+@media screen and (max-width: 1120px){
+    .beer-tile{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 880px){
+    .content-area{
+        margin-left: 200px;
+    }
+    .main-sidebar{
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 760px){
+    .beer-tile{
+        width: 100%;
+    }
+}
+
+
 @media screen and (max-width: 640px){
     body,
     button,
@@ -536,7 +546,29 @@ object {
     h1{
         font-size: 2.5em;
     }
-    .column-1-2{
+    .main-sidebar{
+        position: static;
+        width: 100%;
+    }
+    .logo{
+        padding-top: 20px;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+    .content-area{
+        margin-left: 0;
+        padding-top: 0;
+    }
+    
+    .beer-tile{
+        width: 50%;
+    }
+}
+
+
+@media screen and (max-width: 420px){
+    
+    .beer-tile{
         width: 100%;
     }
 }

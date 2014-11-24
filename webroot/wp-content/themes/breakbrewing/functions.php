@@ -37,7 +37,7 @@ function breakbrewing_setup() {
      * Enable support for Post Thumbnails on posts and pages.
      */
     add_theme_support( 'post-thumbnails' );
-    set_post_thumbnail_size( 300, 300, true );
+    set_post_thumbnail_size( 600, 600, true );
 
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus( array(
@@ -116,7 +116,7 @@ require get_template_directory() . '/inc/customizer.php';
  * @implements pre_get_posts
  */
 function breakbrewing_alter_query( $query ) {
-    if ( $query->is_home() ) {
+    if ( $query->is_main_query() && $query->is_home() ) {
         $query->set('post_type', 'homebrew' );
     }
 }
@@ -223,8 +223,6 @@ function breakbrewing_format_date($date){
  */
 function breakbrewing_datelabel($date){
     $now = new DateTime();
-
-    // error_log(print_r(date()) );
 
     if($now < DateTime::createFromFormat('Ymd', $date)){
         return "Expected Release Date";

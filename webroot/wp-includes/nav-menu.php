@@ -547,6 +547,8 @@ function wp_get_nav_menu_items( $menu, $args = array() ) {
 
 	$items = get_objects_in_term( $menu->term_id, 'nav_menu' );
 
+	
+
 	if ( empty( $items ) )
 		return $items;
 
