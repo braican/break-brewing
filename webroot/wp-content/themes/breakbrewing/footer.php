@@ -8,13 +8,7 @@
  */
 ?>
 
-	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info col-pad">
-			&copy; <?php echo date('Y'); ?> Nick Braica | <a href="http://braican.com">braican.com</a>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+    </div><!-- #content -->    
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

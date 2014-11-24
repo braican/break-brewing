@@ -13,17 +13,15 @@
 
 get_header(); ?>
 
-<?php get_sidebar(); ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main breakbrewing-cf" role="main">
+	<div id="primary" class="content-area breakbrewing-cf">
+		
 
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'content', 'beerblock' ); ?>
+				<?php get_template_part( 'content', 'beertile' ); ?>
 
 			<?php endwhile; ?>
 
@@ -35,6 +33,5 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-		</main><!-- #main -->
 	</div><!-- #primary -->
 <?php get_footer(); ?>

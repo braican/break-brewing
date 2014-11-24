@@ -250,15 +250,15 @@ a {
     color: #e47125;
     text-decoration: none;
     display: inline-block;
-    -webkit-transition: transform .2s;
-         -o-transition: transform .2s;
-            transition: transform .2s;
+    -webkit-transition: transform .3s;
+         -o-transition: transform .3s;
+            transition: transform .3s;
 }
 a:hover {
     -webkit-transform: translateY(-1px);
-    -ms-transform: translateY(-1px);
-    -o-transform: translateY(-1px);
-    transform: translateY(-1px);
+        -ms-transform: translateY(-1px);
+         -o-transform: translateY(-1px);
+            transform: translateY(-1px);
 }
 
 
@@ -268,16 +268,63 @@ a:hover {
  * --layout
  * --------------------------------------------------------------*/
 
+html, body, .site, .main-sidebar, .site-content{
+    height: 100%;
+}
+
+.site{
+    overflow: hidden;
+}
 .main-sidebar{
     position: fixed;
+    left: -400px;
+    top: 0;
+    z-index: 3;
+    padding-left: 400px;
+    background: #e6e6e6;
+    -webkit-transition: all .3s;
+         -o-transition: all .3s;
+            transition: all .3s;
+}
+.main-sidebar .sidebar-handle{
+    padding: 100px 20px 20px;
+}
+.main-sidebar .sidebar-handle > div + div{
+    padding-top: 20px;
+}
+.site-content{
+    position: relative;
+    z-index: 2;
+    -webkit-transition: all .3s;
+         -o-transition: all .3s;
+            transition: all .3s;
+}
+.site-content:before{
+    content:"";
+    position: absolute;
     left: 0;
-    top: 160px;
-    width: 240px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    background: #000;
+    z-index: 100;
+    -webkit-transition: all .2s;
+         -o-transition: all .2s;
+            transition: all .2s;
 }
 .content-area{
-    margin-left: 260px;
-    padding-top: 40px;
+    padding: 40px 20px 40px 260px;
 }
+.site-footer {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: #999;
+    font-size: .8em;
+}
+
 
 .column{
     float: left;
@@ -300,33 +347,81 @@ a:hover {
  * ---------------------------------------------------------------*/
 
 /* sidebar */
-.logo{
-    padding: 20px
+.has-content-drawer.active,
+.has-content-drawer.active + .site-content{
+    -webkit-transform: translateX(400px);
+        -ms-transform: translateX(400px); 
+         -o-transform: translateX(400px);
+            transform: translateX(400px);
+}
+.has-content-drawer.active + .site-content:before{
+    opacity: .2;
+    visibility: visible;
+}
+.secondary-content{
+    clear: both;
+}
+.content-drawer{
+    width: 400px;
+    padding-right: 20px;
+    float: left;
+    position: relative;
+}
+.main-nav{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+.main-nav li{
+    position: relative;
+}
+.main-nav li .drawer-content{
+    width: 400px;
+    margin:-1em 0 0 -420px;
+    padding: 0 20px;
+    text-align: left;
+    font-size: 1.2em;
 }
 
+.logo, .main-nav{
+    width: 220px;
+    float: right;
+}
 
 
 
 /**
  * --beer tile
  */
-.beer-tile{
+.beer-tile {
     position: relative;
     float: left;
     width: 33.33333333%;
     padding: 20px;
+
+    -webkit-transition: opacity .3s;
+         -o-transition: opacity .3s;
+            transition: opacity .3s;
+}
+.beer-tile.inactive{
+    opacity: .2;
 }
 .beer-tile-pad{
     padding: 20px;
 }
-.beer-tile img{
-    width: 100%;
-}
-.tile-front{
+.beer-tile > .beer-tile-pad{
     background: #fff;
     position: relative;
 }
-.beer-tile.active .tile-front{
+.beer-tile img{
+    width: 100%;
+}
+.beer-tile .tile-front{
+    position: relative;
+}
+.beer-tile.active .tile-front,
+.beer-tile.closing .tile-front{
     z-index: 10;
 }
 .beer-tile .tile-hover{
@@ -339,12 +434,12 @@ a:hover {
     visibility: hidden;
     opacity: 0;
 
-    -webkit-transition: all .2s;
-         -o-transition: all .2s;
-            transition: all .2s;
+    -webkit-transition: all .3s;
+         -o-transition: all .3s;
+            transition: all .3s;
 }
 .beer-tile.active .tile-hover,
-.beer-tile:hover .tile-hover{
+.beer-tile:not(.inactive):hover .tile-hover{
     visibility: visible;
     opacity: .9;
 }
@@ -369,18 +464,20 @@ a:hover {
 }
 .beerdrawer{
     position: absolute;
-    left: 20px;
-    top: 20px;
+    left: 0;
+    top: 0;
+    width: 100%;
     background: #fff;
     visibility: hidden;
     z-index: 9;
 
-    -webkit-transition: all .5s;
-         -o-transition: all .5s;
-            transition: all .5s;
+    -webkit-transition: all .3s;
+         -o-transition: all .3s;
+            transition: all .3s;
 }
-.beerdrawer.active{
+.beer-tile.active .beerdrawer{
     visibility: visible;
+    left: 40px;
     -webkit-transform: translateX(100%);
         -ms-transform: translateX(100%);
          -o-transform: translateX(100%);
@@ -390,16 +487,6 @@ a:hover {
 
 
 
-/* --footer */
-.site-footer {
-    clear: both;
-    width: 100%;
-    background: #eee;
-    color: #999;
-    font-size: .8em;
-    padding: 40px 0;
-    margin-top: 40px;
-}
 
 /*--------------------------------------------------------------
  * --media
@@ -521,10 +608,10 @@ object {
 
 @media screen and (max-width: 880px){
     .content-area{
-        margin-left: 200px;
+        padding-left: 200px;
     }
-    .main-sidebar{
-        width: 180px;
+    .logo, .main-nav{
+        width: 160px;
     }
 }
 
@@ -543,6 +630,9 @@ object {
     textarea {
         font-size: 14px;
     }
+    html, body, .site, .main-sidebar, .site-content{
+        height: auto;
+    }
     h1{
         font-size: 2.5em;
     }
@@ -550,14 +640,22 @@ object {
         position: static;
         width: 100%;
     }
-    .logo{
+    .main-sidebar .sidebar-handle{
         padding-top: 20px;
-        max-width: 200px;
+    }
+    .has-content-drawer{
+        padding-left: 0;
+    }
+    .drawer-content{
+        display: none;
+    }
+    .logo,
+    .main-nav{
+        float: none;
         margin: 0 auto;
     }
     .content-area{
-        margin-left: 0;
-        padding-top: 0;
+        padding: 10px;
     }
     
     .beer-tile{
@@ -566,7 +664,7 @@ object {
 }
 
 
-@media screen and (max-width: 420px){
+@media screen and (max-width: 560px){
     
     .beer-tile{
         width: 100%;

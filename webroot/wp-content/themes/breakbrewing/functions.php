@@ -12,6 +12,8 @@ if ( ! isset( $content_width ) ) {
     $content_width = 640; /* pixels */
 }
 
+add_filter('show_admin_bar', '__return_false');
+
 if ( ! function_exists( 'breakbrewing_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
