@@ -37,36 +37,64 @@
      */
     function resetZones(event){
         $('#secondary').removeClass('active');
+        $('#secondary').on(window.transitionEnd, resetContentHeight);
+    }
+
+    /**
+     * resetContentHeight
+     * @param event : the event from the transitionend event
+     * 
+     * description
+     */
+    function resetContentHeight(event){
+        $('#secondary').off(window.transitionEnd);
+        $('#content').removeAttr('style');
     }
 
     /**
      * launchBeerdrawer
      * @param event : the object from the click
      * 
-     * load up the "about" text and load it into the beerdrawer
+     * send out the beer drawer
      */
     function launchBeerdrawer(event){
         event.preventDefault();
 
-        var $activeBeer = $(this).parents('.beer-tile').addClass('active'),
-            tileWidth = $activeBeer.width();
+        var $activeBeer = $(this).parents('.beer-tile'),
+            drawerHeight = $('.beerdrawer', $activeBeer).outerHeight() + 40,
+            windowWidth = $(window).width(),
+            primaryHeight = $('#primary').height(),
+            tileWidth = $activeBeer.width() + 40,
+            tileHeight = $activeBeer.height() + 40,
+            tileOffset = $activeBeer.offset(),
+            tileTransform = 'translateX(' + tileWidth + 'px)';
+
+        if( (tileOffset.left + tileWidth) > (windowWidth - tileWidth) ){
+            tileTransform = 'translateY(' + tileHeight + 'px)';
+
+            if( (tileOffset.top + tileHeight) > (primaryHeight - tileHeight) ){
+                $('#primary').css('paddingBottom', drawerHeight + 'px');
+            }
+        }
+
+
+        $activeBeer.addClass('active').find('.beerdrawer').css('transform', tileTransform);
 
         $activeBeer.siblings().addClass('inactive');
-
-        $('.beerdrawer').on(window.transitionEnd, beerdrawerAnimationEnd);
+        
     }
     /**
      * closeBeerdrawer
      * @param event : the object from the click
      * 
-     * load up the "about" text and load it into the beerdrawer
+     * close the beer drawer
      */
     function closeBeerdrawer(event){
         event.preventDefault();
 
-        var $activeBeer = $(this).parents('.beer-tile').removeClass('active');
+        $active = $(this).parents('.beer-tile').removeClass('active').find('.beerdrawer').removeAttr('style');
 
-        $activeBeer.siblings().removeClass('inactive');
+        $('.beerdrawer').on(window.transitionEnd, beerdrawerAnimationEnd);
     }
 
 
@@ -74,10 +102,12 @@
      * beerdrawerAnimationEnd
      * @param event : the object from the transitionend event
      * 
-     * remove the close
+     * after the beerdrawer's closing animation finishes
      */
     function beerdrawerAnimationEnd(event){
-        
+        $('.beer-tile').removeClass('inactive');
+        $('.beerdrawer').off(window.transitionEnd);
+        $('#primary').removeAttr('style');
     }
 
 
@@ -90,6 +120,13 @@
     function launchContentdrawer(event){
         event.preventDefault();
         event.stopPropagation();
+
+        if( $(window).width() > 640 ){
+            var windowHeight = $(window).height();
+
+            $('#content').height(windowHeight);    
+        }
+
         $('#secondary').addClass('active');
     }
 

@@ -5,13 +5,13 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('beer-tile'); ?>>
-	<div class="beer-tile-pad">
-		<div class="tile-front">
+	<div class="beer-tile-container">
+		<div class="tile-front beer-tile-pad">
 			<?php if(has_post_thumbnail()) : ?>
 				<?php the_post_thumbnail(); ?>
 			<?php endif; ?>
 
-			<div class="tile-hover">
+			<div class="tile-hover beer-tile-pad">
 				<header>
 					<h2><?php the_title(); ?></h2>
 
