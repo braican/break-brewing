@@ -69,10 +69,10 @@
             tileOffset = $activeBeer.offset(),
             tileTransform = 'translateX(' + tileWidth + 'px)';
 
-        if( (tileOffset.left + tileWidth) > (windowWidth - tileWidth) ){
+        if( (tileOffset.left + tileWidth) > (windowWidth - tileWidth + 40) ){
             tileTransform = 'translateY(' + tileHeight + 'px)';
 
-            if( (tileOffset.top + tileHeight) > (primaryHeight - tileHeight) ){
+            if( (tileOffset.top + tileHeight) > (primaryHeight - tileHeight + 40) ){
                 $('#primary').css('paddingBottom', drawerHeight + 'px');
             }
         }
