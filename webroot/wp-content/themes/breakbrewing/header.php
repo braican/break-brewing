@@ -20,7 +20,7 @@
 <meta property="og:title" content="Break Brewing Project" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://breakbrewing.com" />
-<meta property="og:image" content="http://breakbrewing.com/wp-content/themes/breakbrewing/img/logo.png" />
+<meta property="og:image" content="http://breakbrewing.com/wp-content/themes/breakbrewing/img/breakbrewing.png" />
 
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
