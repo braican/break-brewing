@@ -15,7 +15,7 @@
 
 <link rel="canonical" href="http://breakbrewing.com" />
 <link rel="shortlink" href="http://breakbrewing.com" />
-<meta name="description" content="Nick Braica's homebrewing project in Boston." />
+<meta name="description" content="Nick Braica's homebrewing project in Boston, Break Brewing." />
 
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">

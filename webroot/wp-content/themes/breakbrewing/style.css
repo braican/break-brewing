@@ -61,7 +61,7 @@ html {
     -ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
 }
 body {
-    background: #e6e6e6; /* Fallback for when there is no custom background color defined. */
+    background: #fff; /* Fallback for when there is no custom background color defined. */
 }
 article,
 aside,
@@ -277,16 +277,13 @@ a:hover {
     top: 0;
     bottom: 0;
     z-index: 3;
-    background: #e6e6e6;
+    background: #fff;
     -webkit-transition: all .3s;
          -o-transition: all .3s;
             transition: all .3s;
 }
 .main-sidebar .sidebar-handle{
-    padding: 100px 20px 20px;
-}
-.main-sidebar .sidebar-handle > div + div{
-    padding-top: 20px;
+    padding: 20px;
 }
 .site-content{
     position: relative;
@@ -369,15 +366,22 @@ a:hover {
 }
 .main-nav{
     margin: 0;
-    padding: 0;
+    padding: 40px 0 0;
     text-align: center;
     list-style: none;
 }
 .main-nav li{
     position: relative;
 }
+.main-nav li a{
+    font-size: 1.2em;
+    color: #404040;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
 .main-nav li .drawer-content{
-    margin-top: -.5em;
+    margin-top: -1em;
     padding: 20px 0;
     text-align: left;
     border-top: 2px solid #ccc;
@@ -400,7 +404,6 @@ a:hover {
 }
 .beer-tile-container{
     position: relative;
-    background: #fff;
 }
 .beer-tile.inactive{
     opacity: .2;
@@ -409,7 +412,6 @@ a:hover {
     padding: 20px;
 }
 .beer-tile > .beer-tile-pad{
-    background: #fff;
     position: relative;
 }
 .beer-tile img{
@@ -418,7 +420,7 @@ a:hover {
 .tile-front{
     position: relative;
     z-index: 10;
-    background: #fff;
+    background: #eee;
 }
 .beer-tile .tile-hover{
     position: absolute;
@@ -426,7 +428,7 @@ a:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    background: #fff;
+    background: #eee;
     visibility: hidden;
     opacity: 0;
 
@@ -472,7 +474,7 @@ a:hover {
             transition: all .3s;
 }
 .beerdrawer .beer-tile-pad{
-    background: #fff;
+    background: #eee;
 }
 .beer-tile.active .beerdrawer{
     visibility: visible;
