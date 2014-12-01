@@ -366,7 +366,7 @@ a:hover {
 }
 .main-nav{
     margin: 0;
-    padding: 40px 0 0;
+    padding: 20px 0 0;
     text-align: center;
     list-style: none;
 }
@@ -374,7 +374,7 @@ a:hover {
     position: relative;
 }
 .main-nav li a{
-    font-size: 1.2em;
+    font-size: 2em;
     color: #404040;
     text-transform: uppercase;
     letter-spacing: 1px;
