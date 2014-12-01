@@ -283,7 +283,7 @@ a:hover {
             transition: all .3s;
 }
 .main-sidebar .sidebar-handle{
-    padding: 20px;
+    padding: 40px;
 }
 .site-content{
     position: relative;
@@ -308,7 +308,7 @@ a:hover {
             transition: all .2s;
 }
 .content-area{
-    padding: 0 0 80px 260px;
+    padding: 0 0 80px 320px;
     overflow: auto;
 }
 .site-footer {
@@ -336,19 +336,19 @@ a:hover {
 
 /* the sidebar dimensions */
 .main-nav li .drawer-content{
-    width: 220px;
-    margin-left: -240px;
+    width: 240px;
+    margin-left: -280px;
 }
 .logo, .main-nav{
-    width: 220px;
+    width: 240px;
     float: right;
 }
 .has-content-drawer.active,
 .has-content-drawer.active + .site-content{
-    -webkit-transform: translateX(240px);
-        -ms-transform: translateX(240px); 
-         -o-transform: translateX(240px);
-            transform: translateX(240px);
+    -webkit-transform: translateX(260px);
+        -ms-transform: translateX(260px); 
+         -o-transform: translateX(260px);
+            transform: translateX(260px);
 }
 
 
@@ -605,9 +605,9 @@ object {
 @media screen and (max-width: 880px){
     /* the sidebar dimensions */
     .main-nav li .drawer-content{
-        width: 200px;
+        width: 160px;
         margin-left: -200px;
-        font-size: .825em;
+        font-size: .875em;
     }
     .logo, .main-nav{
         width: 160px;
@@ -621,7 +621,7 @@ object {
                 transform: translateX(180px);
     }
     .content-area{
-        padding-left: 200px;
+        padding-left: 240px;
     }
 }
 
