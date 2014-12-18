@@ -4,7 +4,10 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('beer-tile'); ?>>
+
+<?php $beer_status = get_field('breakbrewing_beer_status'); ?>
+<?php $beer_classes = $beer_status ? 'beer-tile ' . $beer_status : 'beer-tile'; ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class($beer_classes); ?>>
 	<div class="beer-tile-container">
 		<div class="tile-front beer-tile-pad">
 			<?php if(has_post_thumbnail()) : ?>

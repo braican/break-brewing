@@ -12,6 +12,17 @@
  */
 
 get_header(); ?>
+	
+
+	<div class="legend">
+		<div class="status-symbol in-progress">
+			<span></span> In Progress
+		</div>
+		<div class="status-symbol currently-drinking">
+			<span></span> Currently Drinking
+		</div>
+	</div>
+
 
 	<div id="primary" class="content-area breakbrewing-cf">
 		
