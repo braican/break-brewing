@@ -473,22 +473,26 @@ html, body{
  */
 .legend{
     text-align: center;
+    padding: 40px 0;
 }
 .legend .status-symbol{
     display: inline-block;
-    padding: 40px 0;
 }
 .legend .status-symbol + .status-symbol{
     margin-left: 40px;
 }
 .legend .status-symbol span{
     display: inline-block;
-    vertical-align: middle;
     position: relative;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    background: #658E15;
 }
-.legend .status-symbol span:after{
+.legend .in-progress span{
+    background: #D35916;
+}
+/*.legend .status-symbol span:after{
     content: "";
     position: absolute;
     top: 0;
@@ -499,7 +503,7 @@ html, body{
 }
 .legend .in-progress span:after{
     border-color: #D35916 #fff;
-}
+}*/
 
 
 
@@ -673,4 +677,16 @@ object {
     }
 }
 
-
+@media screen and (max-width: 360px){
+    .legend{
+        text-align: left;
+        padding-left: 20px;
+    }
+    .legend .status-symbol{
+        display: block;
+    }
+    .legend .status-symbol + .status-symbol{
+        margin-left: 0;
+        margin-top: 12px;
+    }
+}
