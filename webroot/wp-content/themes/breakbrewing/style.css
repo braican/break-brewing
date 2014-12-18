@@ -222,7 +222,7 @@ input,
 select,
 textarea {
     color: #404040;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     line-height: 1.5;
 }
@@ -268,58 +268,20 @@ a:hover {
  * --layout
  * --------------------------------------------------------------*/
 
-
-.site{
-    overflow: hidden;
-}
-.main-sidebar{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    z-index: 3;
-    background: #fff;
-    -webkit-transition: all .3s;
-         -o-transition: all .3s;
-            transition: all .3s;
-}
-.main-sidebar .sidebar-handle{
-    padding: 40px;
-}
-.site-content{
-    position: relative;
-    z-index: 2;
-    -webkit-transition: all .3s;
-         -o-transition: all .3s;
-            transition: all .3s;
-}
-.site-content:before{
-    content:"";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
+html, body{
     height: 100%;
-    visibility: hidden;
-    opacity: 0;
-    background: #000;
-    z-index: 100;
-    -webkit-transition: all .2s;
-         -o-transition: all .2s;
-            transition: all .2s;
 }
-.content-area{
-    padding: 0 0 80px 320px;
-    overflow: auto;
+#page{
+    min-height: 100%;
+    margin-bottom: -60px;
 }
-.site-footer {
-    position: fixed;
-    z-index: 4;
-    left: 0;
-    bottom: 20px;
-    color: #999;
-    font-size: .8em;
+#page:after{
+    content: "";
+    display: block;
 }
-
+.site-footer, #page:after{
+    height: 60px;
+}
 .column{
     float: left;
     width: 100%;
@@ -329,29 +291,8 @@ a:hover {
     padding-right: 20px;
 }
 
-.entry-header{
-    padding-bottom: 20px;
-}
-
-.page-content{
-    padding-top: 40px;
-}
-
-/* the sidebar dimensions */
-.main-nav li .drawer-content{
-    width: 240px;
-    margin-left: -280px;
-}
-.logo, .main-nav{
-    width: 240px;
-    float: right;
-}
-.has-content-drawer.active,
-.has-content-drawer.active + .site-content{
-    -webkit-transform: translateX(260px);
-        -ms-transform: translateX(260px); 
-         -o-transform: translateX(260px);
-            transform: translateX(260px);
+.site-content{
+    padding-top: 240px;
 }
 
 
@@ -359,37 +300,54 @@ a:hover {
  * --components
  * ---------------------------------------------------------------*/
 
-/* sidebar */
-.has-content-drawer.active + .site-content:before{
-    opacity: .2;
-    visibility: visible;
-}
-.secondary-content{
-    clear: both;
-}
-.main-nav{
-    margin: 0;
-    padding: 20px 0 0;
+/**
+ * --header
+ */
+.site-header{
+    position: fixed;
     text-align: center;
-    list-style: none;
+    z-index: 99;
+    width: 100%;
+    padding: 40px 20px 70px;
+    height: 200px;
+    background: #E47125;
+    background: #AF501B;
+    background: #D35916;
+    /*background: rgba(228,113,37,.6);*/
+
+    -webkit-transition: all .2s;
+         -o-transition: all .2s;
+            transition: all .2s;
 }
-.main-nav li{
-    position: relative;
+.site-header.header-up{
+    height: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
-.main-nav li a{
-    font-size: 2em;
-    color: #404040;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
+.logo{
+    height: 100%;
 }
-.main-nav li .drawer-content{
-    margin-top: -1em;
-    padding: 20px 0;
-    text-align: left;
-    border-top: 2px solid #ccc;
+.logo svg{
+    height: 100%;
 }
 
+.main-nav{
+    list-style: none;
+    margin: 0;
+    text-align: center;
+}
+
+
+
+/**
+ * --footer
+ */
+.site-footer {
+    color: #999;
+    font-size: .8em;
+    padding: 20px;
+    text-align: center;
+}
 
 
 /**
@@ -423,7 +381,8 @@ a:hover {
 .tile-front{
     position: relative;
     z-index: 10;
-    background: #eee;
+    background: #fff;
+    border: 4px solid #eee;
 }
 .beer-tile .tile-hover{
     position: absolute;
@@ -431,7 +390,7 @@ a:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    background: #eee;
+    background: #fff;
     visibility: hidden;
     opacity: 0;
 
@@ -463,24 +422,48 @@ a:hover {
 .beer-tile .about-the-beer{
     display: none;
 }
+
+/**
+ * --beer drawer
+ */
+
 .beerdrawer{
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    padding-bottom: 40px;
+    margin-bottom: 40px;
     visibility: hidden;
     z-index: 9;
+    border: 4px solid #eee;
 
     -webkit-transition: all .3s;
          -o-transition: all .3s;
             transition: all .3s;
 }
 .beerdrawer .beer-tile-pad{
-    background: #eee;
+    background: #fff;
 }
 .beer-tile.active .beerdrawer{
     visibility: visible;
+}
+
+
+/**
+ * --about content
+ */
+.about-content{
+    margin-top: 60px;
+    background: #eee;
+    padding: 60px 20px;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 300;
+}
+.about-container{
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 
@@ -594,43 +577,19 @@ object {
  * --media queries
  * --------------------------------------------------------------*/
 
+@media screen and (min-width: 1520px){
+    .beer-tile{
+        width: 20%;
+    }
+}
 @media screen and (min-width: 1380px){
     .beer-tile{
         width: 25%;
     }
 }
-@media screen and (max-width: 1120px){
+@media screen and (max-width: 860px){
     .beer-tile{
         width: 50%;
-    }
-}
-
-@media screen and (max-width: 880px){
-    /* the sidebar dimensions */
-    .main-nav li .drawer-content{
-        width: 160px;
-        margin-left: -200px;
-        font-size: .875em;
-    }
-    .logo, .main-nav{
-        width: 160px;
-        float: right;
-    }
-    .has-content-drawer.active,
-    .has-content-drawer.active + .site-content{
-        -webkit-transform: translateX(180px);
-            -ms-transform: translateX(180px); 
-             -o-transform: translateX(180px);
-                transform: translateX(180px);
-    }
-    .content-area{
-        padding-left: 240px;
-    }
-}
-
-@media screen and (max-width: 760px){
-    .beer-tile{
-        width: 100%;
     }
 }
 
@@ -643,58 +602,8 @@ object {
     textarea {
         font-size: 14px;
     }
-    html, body, .site, .main-sidebar, .site-content{
-        height: auto;
-    }
     h1{
         font-size: 2.5em;
-    }
-
-    .has-content-drawer.active,
-    .has-content-drawer.active + .site-content{
-        -webkit-transform: none;
-            -ms-transform: none;
-             -o-transform: none;
-                transform: none;
-    }
-    .has-content-drawer.active + .site-content:before{
-        visibility: hidden;
-        display: none;
-    }
-    .has-content-drawer.active .drawer-content{
-        display: block;
-        margin: .6em 0 0;
-        width: 100%;
-    }
-    .main-sidebar{
-        position: static;
-        width: 100%;
-    }
-    .main-sidebar .sidebar-handle{
-        padding-top: 20px;
-    }
-    .has-content-drawer{
-        padding-left: 0;
-    }
-    .drawer-content{
-        display: none;
-        margin-top: 1em;
-        border-top: 0;
-    }
-    .logo,
-    .main-nav{
-        float: none;
-        margin: 0 auto;
-    }
-    .main-nav{
-        width: 100%;
-    }
-    .content-area{
-        padding: 10px 0 80px 10px;
-    }
-    
-    .beer-tile{
-        width: 50%;
     }
 }
 

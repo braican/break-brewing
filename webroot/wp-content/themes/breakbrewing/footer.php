@@ -8,15 +8,26 @@
  */
 ?>
         
-    </div><!-- #content -->    
+    </div><!-- #content -->
 
-    <footer id="colophon" class="site-footer" role="contentinfo">
-        <div class="site-info col-pad">
-            &copy; <?php echo date('Y'); ?> Nick Braica | <a href="http://braican.com">braican.com</a>
-        </div><!-- .site-info -->
-    </footer><!-- #colophon -->
+
+
+    <?php if( $the_post = get_page_by_title('About') ) : ?>
+        <div class="about-content">
+            <div class="about-container">
+                <?php echo apply_filters('the_content', $the_post->post_content); ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
 </div><!-- #page -->
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="site-info">
+        &copy; <?php echo date('Y'); ?> Nick Braica | <a href="http://braican.com">braican.com</a>
+    </div><!-- .site-info -->
+</footer><!-- #colophon -->
+
 
 <?php wp_footer(); ?>
 

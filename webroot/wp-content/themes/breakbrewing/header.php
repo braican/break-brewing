@@ -24,7 +24,9 @@
 
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+<!-- <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'> -->
+<!-- <link href='http://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'> -->
+<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
 
 <?php wp_head(); ?>
 
@@ -36,29 +38,10 @@
     
     <?php $main_menu = wp_get_nav_menu_items(8); ?>
 
-    <div id="secondary" class="main-sidebar<?php echo $main_menu ? ' has-content-drawer' : ''; ?>" role="complementary">
+    <header class="site-header">
 
-        <div class="sidebar-handle breakbrewing-cf">
+        <div class="logo"><?php include_svg('logo-2'); ?></div>
 
-            <div class="logo"><?php include_svg('logo-2'); ?></div>
-
-            <?php if($main_menu) : ?>
-                <div class="secondary-content">
-                    <ul class="main-nav">
-                        <?php foreach($main_menu as $link) : ?>
-                            <li>
-                                <a href="#" class="js-launch-content-drawer" data-content="<?php echo $link->object_id; ?>"><?php echo $link->title; ?></a>
-                                <?php $the_post = get_post($link->object_id); ?>
-                                <div class="drawer-content" data-content="<?php echo $the_post->ID; ?>">
-                                    <?php echo apply_filters('the_content', $the_post->post_content); ?>
-                                </div>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            <?php endif; ?>
-        </div>
-
-    </div><!-- #secondary -->
+    </header><!-- #secondary -->
 
 	<div id="content" class="site-content">
