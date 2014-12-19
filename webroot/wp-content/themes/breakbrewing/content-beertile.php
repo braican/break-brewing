@@ -10,9 +10,14 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class($beer_classes); ?>>
 	<div class="beer-tile-container">
 		<div class="tile-front beer-tile-pad">
-			<?php if(has_post_thumbnail()) : ?>
-				<?php the_post_thumbnail(); ?>
-			<?php endif; ?>
+			<div class="beer-label">
+				<?php if(has_post_thumbnail()) : ?>
+					<?php the_post_thumbnail(); ?>
+				<?php else : ?>
+					<div><?php the_title(); ?></div>
+					<img src="<?php echo get_template_directory_uri(); ?>/img/placeholder.png" alt="">
+				<?php endif; ?>
+			</div>
 
 			<div class="tile-hover beer-tile-pad">
 				<header>

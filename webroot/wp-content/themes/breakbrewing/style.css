@@ -442,6 +442,27 @@ html, body{
 
 
 /**
+ * --beer label
+ */
+.beer-label{
+    position: relative;
+}
+.beer-label div{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.4em;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
+
+/**
  * --beer drawer
  */
 
