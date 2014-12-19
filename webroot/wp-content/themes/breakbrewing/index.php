@@ -16,7 +16,7 @@ get_header(); ?>
 
 	<div class="legend">
 		<div class="status-symbol in-progress">
-			<span></span> In Progress
+			<span></span> Currently Brewing
 		</div>
 		<div class="status-symbol currently-drinking">
 			<span></span> Currently Drinking
