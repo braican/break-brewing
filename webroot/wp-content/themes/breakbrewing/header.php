@@ -40,7 +40,7 @@
 
     <header class="site-header">
 
-        <div class="logo"><?php include_svg('logo-2'); ?></div>
+        <div class="logo"><?php include_svg('logo-3'); ?></div>
 
     </header><!-- #secondary -->
 

@@ -313,7 +313,8 @@ html, body{
     background: #E47125;
     background: #AF501B;
     background: #D35916;
-    /*background: rgba(228,113,37,.6);*/
+    background: #fff;
+    background: rgba(255,255,255,.92);
 
     -webkit-transition: all .2s;
          -o-transition: all .2s;
