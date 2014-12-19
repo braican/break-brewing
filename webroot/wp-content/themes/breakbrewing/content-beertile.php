@@ -48,20 +48,24 @@
 					</section>
 				<?php endif; ?>
 
-				<section class="more">
-					<a href="#" class="js-launch-beerdrawer">+ More</a>
-				</section>
+				<?php if($post_content = get_the_content()) : ?>
+					<section class="more">
+						<a href="#" class="js-launch-beerdrawer">+ More</a>
+					</section>
+				<?php endif; ?>
 			</div>
 		</div>
 
-		<div class="beerdrawer">
-			<div class="beer-tile-pad">
-				<?php the_content(); ?>
-				<div class="less">
-					<a href="#" class="js-close-beerdrawer">- Less</a>
+		<?php if($post_content) : ?>
+			<div class="beerdrawer">
+				<div class="beer-tile-pad">
+					<?php echo $post_content; ?>
+					<div class="less">
+						<a href="#" class="js-close-beerdrawer">- Less</a>
+					</div>
 				</div>
 			</div>
-		</div>
+		<?php endif; ?>
 	</div>
 
 </article><!-- #post-## -->
