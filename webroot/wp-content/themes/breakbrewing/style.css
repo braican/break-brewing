@@ -450,8 +450,11 @@ html, body{
          -o-transition: all .3s;
             transition: all .3s;
 }
-.beer-tile.active .tile-hover{
-    border-color: #ddd;
+.beer-tile.active.in-progress .tile-hover{
+    border-color: #D35916;
+}
+.beer-tile.active.currently-drinking .tile-hover{
+    border-color: #658E15;
 }
 .beer-tile.active .tile-hover,
 .beer-tile:not(.inactive) .tile-front:hover .tile-hover{
@@ -524,6 +527,12 @@ html, body{
 }
 .beer-tile.active .beerdrawer{
     visibility: visible;
+}
+.beer-tile.active.in-progress .beerdrawer{
+    border-color: #D35916;
+}
+.beer-tile.active.currently-drinking .beerdrawer{
+    border-color: #658E15;
 }
 
 
