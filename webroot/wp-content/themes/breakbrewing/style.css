@@ -296,6 +296,12 @@ html, body{
     text-align: center;
 }
 
+#primary{
+    -webkit-transition: padding .4s;
+    -o-transition: padding .4s;
+    transition: padding .4s;
+}
+
 
 /* ---------------------------------------------------------------
  * --components
@@ -382,7 +388,6 @@ html, body{
  */
 
 .beer-tile {
-    position: relative;
     display: inline-block;
     margin-right: -4px;
     width: 100%;
@@ -393,11 +398,11 @@ html, body{
          -o-transition: opacity .3s;
             transition: opacity .3s;
 }
-.beer-tile-container{
-    position: relative;
-}
 .beer-tile.inactive{
     opacity: .2;
+}
+.beer-tile-container{
+    position: relative;
 }
 .beer-tile-pad{
     padding: 20px;
@@ -439,10 +444,14 @@ html, body{
     visibility: hidden;
     opacity: 0;
     z-index: 2;
+    border: 4px solid #fff;
 
     -webkit-transition: all .3s;
          -o-transition: all .3s;
             transition: all .3s;
+}
+.beer-tile.active .tile-hover{
+    border-color: #ddd;
 }
 .beer-tile.active .tile-hover,
 .beer-tile:not(.inactive) .tile-front:hover .tile-hover{
@@ -504,7 +513,7 @@ html, body{
     margin-bottom: 40px;
     visibility: hidden;
     z-index: 9;
-    border: 4px solid #eee;
+    border: 4px solid #ddd;
 
     -webkit-transition: all .3s;
          -o-transition: all .3s;

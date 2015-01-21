@@ -67,7 +67,7 @@
             tileWidth = $activeBeer.width() + 40,
             tileHeight = $activeBeer.height() + 40,
             tileOffset = $activeBeer.offset(),
-            tileTransform = 'translateX(' + tileWidth + 'px)';
+            tileTransform = 'translateX(' + (tileWidth - 20) + 'px)';
 
         if( (tileOffset.left + tileWidth) > (windowWidth - tileWidth + 40) ){
             tileTransform = 'translateY(' + tileHeight + 'px)';
