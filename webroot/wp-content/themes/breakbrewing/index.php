@@ -53,7 +53,7 @@ get_header(); ?>
 	<?php endif; ?>
 
 	<div class="instagram-feed">
-		<header>We hashtag a bunch too</header>
+		<header>Process photos</header>
 		<div id="instabeer"></div>
 		
 	</div>

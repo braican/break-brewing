@@ -17,6 +17,7 @@
       <ul>
         <li><a target="_blank" href="https://plus.google.com/113286017182861587914" rel="publisher"><?php include_svg('social-google'); ?></a></li>
         <li><a target="_blank" href="http://instagram.com/breakbrewing/" rel="publisher"><?php include_svg('social-instagram'); ?></a></li>
+        <li><a target="_blank" href="https://untappd.com/breakbrewingproject" rel="publisher"><?php include_svg('social-untappd'); ?></a></li>
       </ul>
     </div>
 

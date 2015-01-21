@@ -605,7 +605,11 @@ html, body{
 }
 .instaphoto{
     display: inline-block;
+    margin-bottom: -6px;
     border: 2px solid #fff;
+}
+.instaphoto img{
+    display: block;
 }
 
 
