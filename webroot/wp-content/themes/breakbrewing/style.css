@@ -586,7 +586,8 @@ html, body{
  */
 .about-content{
     margin-top: 60px;
-    background: #eee;
+    background: #404040;
+    color: #fff;
     padding: 60px 20px;
     text-align: center;
     font-size: 1.4em;
