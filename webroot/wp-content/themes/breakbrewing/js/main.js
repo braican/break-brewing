@@ -148,7 +148,7 @@
                 hasScrolled();
                 didScroll = false;
             }
-        }, 250);
+        }, 10);
 
         function hasScrolled() {
             var st = $(this).scrollTop();
@@ -175,6 +175,34 @@
     }
 
 
+    /**
+     * getInstagrams 
+     * 
+     * get instagram photoz
+     */
+    function getInstagrams(){
+        // userId (breakbrwing) - 1560914241,
+        // userId (braican) - 1184943897
+        var feed = new Instafeed({
+            target      : 'instabeer',
+            get         : 'user',
+            userId      : 1560914241,
+            clientId    : '060417a9263c454ea491f6f9952b0707',
+            accessToken : '1560914241.060417a.28d8b80460814baabd01236cc4783a30',
+            template    : '<a class="instaphoto" target="_blank" href="{{link}}"><img src="{{image}}"></a>',
+            success     : function(json){
+                console.log(json);
+
+                // var markup = '';
+
+                // $.each(json.data, function(index, photo) {
+                //     markup += '<a class="instaphoto" href="' + + '"><img src="' + photo.images.thumbnail.url + '"></a>';
+                // });
+            }
+        });
+        feed.run();
+    }
+
 
     // -------------------------------
     // public
@@ -189,6 +217,8 @@
         $('.js-launch-content-drawer').on('click', launchContentdrawer);
 
         headerInteraction();
+
+        getInstagrams();
 
     }
 

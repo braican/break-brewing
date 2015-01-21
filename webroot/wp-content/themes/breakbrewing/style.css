@@ -255,10 +255,10 @@ a {
             transition: transform .3s;
 }
 a:hover {
-    -webkit-transform: translateY(-1px);
-        -ms-transform: translateY(-1px);
-         -o-transform: translateY(-1px);
-            transform: translateY(-1px);
+    -webkit-transform: translateY(-2px);
+        -ms-transform: translateY(-2px);
+         -o-transform: translateY(-2px);
+            transform: translateY(-2px);
 }
 
 
@@ -293,6 +293,7 @@ html, body{
 
 .site-content{
     padding-top: 200px;
+    text-align: center;
 }
 
 
@@ -349,16 +350,44 @@ html, body{
     padding: 20px;
     text-align: center;
 }
+.site-info{
+    padding: 32px 0;
+}
+
+
+/**
+ * --social
+ */
+.social{
+    padding: 40px 0;
+}
+.social ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.social ul li{
+    display: inline-block;
+    margin: 0 10px;
+}
+.social ul li a{
+    display: block;
+    width: 40px;
+}
+
 
 
 /**
  * --beer tile
  */
+
 .beer-tile {
     position: relative;
-    float: left;
+    display: inline-block;
+    margin-right: -4px;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
+    text-align: left;
 
     -webkit-transition: opacity .3s;
          -o-transition: opacity .3s;
@@ -378,6 +407,7 @@ html, body{
 }
 .beer-tile img{
     width: 100%;
+    display: block;
 }
 .tile-front{
     position: relative;
@@ -553,6 +583,25 @@ html, body{
 
 
 
+/**
+ * --instagram
+ */
+.instagram-feed{
+    padding: 80px 0;
+    text-align: center;
+}
+.instagram-feed header{
+    font-size: 2em;
+    padding-bottom: 20px;
+}
+.instaphoto{
+    display: inline-block;
+    border: 2px solid #fff;
+}
+
+
+
+
 
 /*--------------------------------------------------------------
  * --media
@@ -662,24 +711,19 @@ object {
  * --------------------------------------------------------------*/
 
 
-@media screen and (min-width: 560px){
+@media screen and (min-width: 620px){
     .beer-tile{
         width: 50%;
     }
 }
-@media screen and (min-width: 920px){
+@media screen and (min-width: 1020px){
     .beer-tile{
         width: 33.33333333%;
     }
 }
-@media screen and (min-width: 1240px){
+@media screen and (min-width: 1480px){
     .beer-tile{
         width: 25%;
-    }
-}
-@media screen and (min-width: 1440px){
-    .beer-tile{
-        width: 20%;
     }
 }
 

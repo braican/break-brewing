@@ -10,21 +10,19 @@
         
     </div><!-- #content -->
 
-
-
-    <?php if( $the_post = get_page_by_title('About') ) : ?>
-        <div class="about-content">
-            <div class="about-container">
-                <?php echo apply_filters('the_content', $the_post->post_content); ?>
-            </div>
-        </div>
-    <?php endif; ?>
-
 </div><!-- #page -->
 
 <footer id="colophon" class="site-footer" role="contentinfo">
+    <div class="social">
+      <ul>
+        <li><a target="_blank" href="https://plus.google.com/113286017182861587914" rel="publisher"><?php include_svg('social-google'); ?></a></li>
+        <li><a target="_blank" href="http://instagram.com/breakbrewing/" rel="publisher"><?php include_svg('social-instagram'); ?></a></li>
+      </ul>
+    </div>
+
+
     <div class="site-info">
-        &copy; <?php echo date('Y'); ?> Nick Braica | <a href="http://braican.com">braican.com</a>
+        &copy; <?php echo date('Y'); ?> Nick Braica and Break Brewing Project | <a href="http://braican.com">braican.com</a>
     </div><!-- .site-info -->
 </footer><!-- #colophon -->
 
