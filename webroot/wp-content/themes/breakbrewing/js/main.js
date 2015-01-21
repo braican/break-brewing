@@ -64,15 +64,15 @@
             drawerHeight = $('.beerdrawer', $activeBeer).outerHeight() + 40,
             windowWidth = $(window).width(),
             primaryHeight = $('#primary').height(),
-            tileWidth = $activeBeer.width() + 40,
-            tileHeight = $activeBeer.height() + 40,
+            tileWidth = $activeBeer.outerWidth(),
+            tileHeight = $activeBeer.outerHeight(),
             tileOffset = $activeBeer.offset(),
-            tileTransform = 'translateX(' + (tileWidth - 20) + 'px)';
+            tileTransform = 'translateX(' + tileWidth + 'px)';
 
-        if( (tileOffset.left + tileWidth) > (windowWidth - tileWidth + 40) ){
+        if( (tileOffset.left + tileWidth) > (windowWidth - tileWidth) ){
             tileTransform = 'translateY(' + tileHeight + 'px)';
 
-            if( (tileOffset.top + tileHeight) > (primaryHeight - tileHeight + 40) ){
+            if( (tileOffset.top + tileHeight) > primaryHeight ){
                 $('#primary').css('paddingBottom', drawerHeight + 'px');
             }
         }
@@ -93,7 +93,7 @@
         event.preventDefault();
 
         $active = $(this).parents('.beer-tile').removeClass('active').find('.beerdrawer').removeAttr('style');
-
+        $('#primary').removeAttr('style');
         $('.beerdrawer').on(window.transitionEnd, beerdrawerAnimationEnd);
     }
 
@@ -107,7 +107,6 @@
     function beerdrawerAnimationEnd(event){
         $('.beer-tile').removeClass('inactive');
         $('.beerdrawer').off(window.transitionEnd);
-        $('#primary').removeAttr('style');
     }
 
 

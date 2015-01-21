@@ -294,12 +294,15 @@ html, body{
 .site-content{
     padding-top: 200px;
     text-align: center;
+    overflow: hidden;
 }
 
 #primary{
-    -webkit-transition: padding .4s;
-    -o-transition: padding .4s;
-    transition: padding .4s;
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-transition: padding .3s;
+         -o-transition: padding .3s;
+            transition: padding .3s;
 }
 
 
@@ -390,6 +393,7 @@ html, body{
 .beer-tile {
     display: inline-block;
     margin-right: -4px;
+    margin-bottom: -6px;
     width: 100%;
     padding: 10px;
     text-align: left;
